@@ -87,7 +87,7 @@ interface Janken {
             me.setLocation(300, 200);
         }
         if(result == JankenResult.draw){
-            actor.setLocation(0, 0);
+            actor.setLocation(10, 10);
             me.setLocation(600, 400);
         }
     }

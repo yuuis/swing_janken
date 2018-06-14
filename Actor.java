@@ -1,5 +1,7 @@
 package swing;
 
+import java.awt.Dimension;
+
 import javax.swing.ImageIcon;
 
 import org.w3c.dom.css.Rect;
@@ -21,6 +23,8 @@ public class Actor {
         this.image = imagepath;
         ImageIcon icon = new ImageIcon(this.image);
 		label = new JLabel(icon);
+		label.setPreferredSize(new Dimension(10, 10));
+
 	}
 	
 	public void move(int distance) {
@@ -37,16 +41,15 @@ public class Actor {
 	
 	protected Actor getOneIntersectingObject() {
     	for (Actor ac : world.actors) {
-			if(ac.x == this.x && ac.y == this.y && ac != this) {
+			if(Math.abs(ac.x - this.x) <= 10 && Math.abs(ac.y - this.y) <= 10 && ac != this) {
     			return ac;
     		}
-			
 		}
     	return null;
     }
 	
 	public boolean isAtEdge() {
-        return (x <= 0 || y <= 0 || x > world.getWidth() || y > world.getHeight());
+        return (x <= 0 || y <= 0 || x + 70 > world.getWidth() || y + 100 > world.getHeight());
     }
 	
 	public void act() {

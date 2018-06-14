@@ -10,22 +10,6 @@ public class Rat extends Actor implements Janken {
     }
 
     public void act() {
-//        if (Greenfoot.isKeyDown("down")) {
-//            setRotation(90);
-//            move(6);
-//        }
-//        if (Greenfoot.isKeyDown("up")) {
-//            setRotation(270);
-//            move(6);
-//        }
-//        if (Greenfoot.isKeyDown("right")) {
-//            setRotation(0);
-//            move(6);
-//        }
-//        if (Greenfoot.isKeyDown("left")) {
-//            setRotation(180);
-//            move(6);
-//        }
     	
     	move(5);
         if (isAtEdge()) {

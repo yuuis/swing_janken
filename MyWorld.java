@@ -8,7 +8,7 @@ public class MyWorld extends World {
         flog.setWorld(this);
         
         Actor rat = new Rat("/Users/yuuis/tut/first_semester/応用プログラミング3/rat/images/mouse.png");
-        addObject(rat, 600, 10);
+        addObject(rat, 500, 10);
         rat.setWorld(this);
     }
 }
