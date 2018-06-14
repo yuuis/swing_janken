@@ -9,8 +9,8 @@ import org.w3c.dom.css.Rect;
 import javax.swing.JLabel;
 
 public class Actor {
-	int x;
-	int y;
+	double x;
+	double y;
 	int rotation = 0;
 	String image;
 	World world;
@@ -23,18 +23,18 @@ public class Actor {
         this.image = imagepath;
         ImageIcon icon = new ImageIcon(this.image);
 		label = new JLabel(icon);
+		
 		label.setPreferredSize(new Dimension(10, 10));
-
 	}
 	
 	public void move(int distance) {
         double radians = Math.toRadians(rotation);
-        int dx = (int) Math.round(Math.cos(radians) * distance);
-        int dy = (int) Math.round(Math.sin(radians) * distance);
+        double dx = Math.round(Math.cos(radians) * distance);
+        double dy = Math.round(Math.sin(radians) * distance);
         setLocation(x + dx, y + dy);
     }
 	
-	public void setLocation(int x, int y) {
+	public void setLocation(double x, double y) {
         this.x = x;
         this.y = y;
     }
@@ -53,7 +53,6 @@ public class Actor {
     }
 	
 	public void act() {
-		
 	}
 	
 	public World getWorld() {
@@ -89,7 +88,7 @@ public class Actor {
     }
 	
 	public JLabel repaint() {
-		label.setBounds(x, y, 100, 100);
+		label.setBounds((int)x, (int)y, 100, 100);
 		return label;
 		
 	}

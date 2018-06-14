@@ -9,7 +9,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-public class World extends JFrame{
+public class World{
 	int width;
 	int hight;
 	int cellSize = 1;
@@ -17,17 +17,20 @@ public class World extends JFrame{
 	boolean backgroundIsClassImage;
 	List<Actor> actors = new ArrayList<Actor>();
 	JPanel panel;
+	JFrame frame;
 	
     public World(int width, int hight) {
     	this.width = width;
     	this.hight = hight;
-    	setTitle("ワールド");
-        setBounds(100, 100, width, hight);
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    	frame = new JFrame();
+    	frame.setTitle("ワールド");
+        frame.setBounds(100, 100, width, hight);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         panel = new JPanel();
         panel.setLayout(null);
-        Container contentPane = getContentPane();
-	    contentPane.add(panel, BorderLayout.CENTER); 
+        Container contentPane = frame.getContentPane();
+	    contentPane.add(panel, BorderLayout.CENTER);
+	    frame.setVisible(true);
     }
     
     public void timer() throws InterruptedException {
@@ -36,7 +39,6 @@ public class World extends JFrame{
     			ac.act();
     			ac.setWorld(this);
     			JLabel label = ac.repaint();
-    			
     			Thread.sleep(10);
     		}
     	}
@@ -52,9 +54,16 @@ public class World extends JFrame{
 		panel.setLayout(null);
 		panel.add(label);
 		
-		Container contentPane = getContentPane();
+		Container contentPane = frame.getContentPane();
 	    contentPane.add(panel, BorderLayout.CENTER);
 	    panel.repaint();
     }
+	public int getWidth() {
+		return width;
+	}
+	
+	public int getHeight() {
+		return hight;
+	}
 	 
 }

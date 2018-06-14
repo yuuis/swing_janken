@@ -13,6 +13,7 @@ public class Rat extends Actor implements Janken {
     	
     	move(5);
         if (isAtEdge()) {
+        	System.out.println("true");
             move(-5);
             turn(270);
         } 
